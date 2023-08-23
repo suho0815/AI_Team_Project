@@ -1,25 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import {BarChart, LineChart} from './Component'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // const data = [25, 45, 60, 30, 10]
+  // const label = ['a', 'b', 'c', 'd', 'e']
+  // const backgroundColor = ['blue', 'steelblue', 'red', 'pink', 'black']
+
+  return <div className="w-full h-full"></div>
 }
 
-export default App;
+export default App
