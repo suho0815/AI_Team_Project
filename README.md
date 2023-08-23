@@ -5,7 +5,7 @@
 
 ## 2. 팀원  
   
-|      Front - End       |          Back - End         |          DA         |                                                               
+|      Front - End       |          Back - End         |          DA         |                                                              |<img width="200" alt="image" src="https://avatars.githubusercontent.com/u/98063854?v=4">|<img width="200" alt="image" src="https://avatars.githubusercontent.com/u/129818813?v=4">|<img width="200" alt="image" src="https://avatars.githubusercontent.com/u/129818813?v=4">| 
 | :------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: | 
 |   [@suho0815](https://github.com/suho0815)  |     [@JIeunhuh](https://github.com/JIeunhuh)  |    [@YeDongVibe](https://github.com/YeDongVibe)  |
 | 이수호 | 허지은 | 이예진 |
