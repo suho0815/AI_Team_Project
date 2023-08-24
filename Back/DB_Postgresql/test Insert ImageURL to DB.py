@@ -30,7 +30,7 @@ def update_image():
     # img file 가져오기(각 레코드에 맞춰 url 넣어야 함 ; enumerate 사용 !)
       for idx, filename in enumerate(os.listdir(image_dir), start=3600):
           if filename.endswith('.jpg') or filename.endswith('.png'):
-              image_path = os.path.join(image_dir, filename)
+              # image_path = os.path.join(image_dir, filename)
               image_url = f'http://localhost:8080/images/{filename}'
               
               # Insert ImageURL to DB(파라미터가 하나일때도 쉼표 써야함 ! ; 파라미터를 튜플로 전달하기 때문)
