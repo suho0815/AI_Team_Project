@@ -1,4 +1,4 @@
-export function Div(DivclassName) {
-  const className = ['box-sizing', DivclassName].join(' ')
-  return <div className={className}></div>
+export function Div({className, children}) {
+  const DivclassName = ['box-sizing', className].join(' ')
+  return <div className={DivclassName}>{children}</div>
 }
