@@ -34,7 +34,7 @@ def update_image():
               image_url = f'http://localhost:8080/images/{filename}'
               
               # Insert ImageURL to DB(파라미터가 하나일때도 쉼표 써야함 ! ; 파라미터를 튜플로 전달하기 때문)
-              cur.execute('update recycling_img set img_url = %s where detect_log_id=%s', (image_url, idx))
+              cur.execute('update total_recycle set img_url = %s where detect_log_id=%s', (image_url, idx))
     
             # 
       conn.commit()
