@@ -1,5 +1,6 @@
-import {BarChart, LineChart} from './Component'
-import {FileUpload} from './Component'
+import {Login} from './Page/LoginPage/Login'
+import {Nav} from './Page/Nav'
+import {BrowserRouter, Routes} from 'react-router-dom'
 
 function App() {
   // const data = [25, 45, 60, 30, 10]
@@ -8,7 +9,8 @@ function App() {
 
   return (
     <div className="w-screen h-full">
-      <FileUpload />
+      <Nav />
+      <Login />
     </div>
   )
 }

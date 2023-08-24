@@ -1,35 +1,38 @@
-import React, { useState, useRef } from 'react';
-import axios from 'axios';
+import React, {useState, useRef} from 'react'
+import axios from 'axios'
 
 export const FileUpload = () => {
-  const fileRef = useRef();
-  const [fileName, setFileName] = useState('');
+  const fileRef = useRef()
+  const [fileName, setFileName] = useState('')
+
+  // 서버 url 호출 시
+  // process.env.REACT_APP_Server_URL 사용
 
   const handleUpload = async () => {
-    const file = fileRef.current.files[0];
-    const formData = new FormData();
-    formData.append('file', file);
+    const file = fileRef.current.files[0]
+    const formData = new FormData()
+    formData.append('file', file)
 
-    try {
-      const response = await axios.post('/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-      console.log(response.data); // Upload 결과 확인
-    } catch (error) {
-      console.error('Upload error:', error);
-    }
-  };
+    // try {
+    //   const response = await axios.post('/upload', formData, {
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data',
+    //     },
+    //   });
+    //   console.log(response.data); // Upload 결과 확인
+    // } catch (error) {
+    //   console.error('Upload error:', error);
+    // }
+  }
 
   const handleFileChange = () => {
     if (fileRef.current.files.length > 0) {
-      const selectedFileName = fileRef.current.files[0].name;
-      setFileName(selectedFileName);
+      const selectedFileName = fileRef.current.files[0].name
+      setFileName(selectedFileName)
     } else {
-      setFileName('');
+      setFileName('')
     }
-  };
+  }
 
   return (
     <div className="w-full">
@@ -43,5 +46,5 @@ export const FileUpload = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
