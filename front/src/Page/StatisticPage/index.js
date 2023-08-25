@@ -1,5 +1,6 @@
 // 통계 관련 페이지
-import {ByTime, ByType} from './ByTime'
+import {ByTime} from './ByTime'
+import {ByType} from './ByType'
 import {Div} from '../../Component'
 
 export default function StatisticPage() {
