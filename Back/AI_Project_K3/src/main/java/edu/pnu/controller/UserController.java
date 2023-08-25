@@ -28,6 +28,7 @@ public class UserController {
         }
     }
     
+    // get x , post o    
     // login
     @PostMapping("/login")
     public ResponseEntity<String> signIn(@RequestBody UserEntity user){
