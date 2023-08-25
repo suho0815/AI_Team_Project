@@ -1,8 +1,6 @@
 package edu.pnu.domain;
 
-import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,6 +34,7 @@ public class Recycling {
 	private LocalDate date;
 	@Column(columnDefinition = "time")
 	private String time;
+	private Boolean state;
 	private Integer ce;
 	private Integer  rm;
 	private String reason;
