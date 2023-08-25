@@ -1,6 +1,7 @@
 package edu.pnu.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,14 +22,18 @@ public class UserServiceImpl implements UserService {
 	// sign in
 	@Override
 	public UserEntity getUser(UserEntity user) {
-		// TODO Auto-generated method stub
+		// find user	
+		Optional<UserEntity> findUser = userRepo.findByUserId(user.getUserId());
+		// user가 DB에 있으면 정보 가져옴
+		if(findUser.isPresent())
+			return findUser.get();
 		return null;
 	}
 
 	// sign up
 	@Override
 	public void createUser(UserEntity user) {
-		user.setUser_id(user.getUser_id());
+		user.setUserId(user.getUserId());
 		// 패스워드 암호화
 		user.setUser_pw(passwordEncoder.encode(user.getUser_pw()));
 		user.setUser_pw_chk(passwordEncoder.encode(user.getUser_pw_chk()));

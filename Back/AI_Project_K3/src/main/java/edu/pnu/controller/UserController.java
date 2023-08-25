@@ -14,7 +14,8 @@ public class UserController {
     
 	@Autowired
 	private UserService userService;
-
+	
+	// create Member
     @PostMapping("/signup")
     public ResponseEntity<String> signUp(@RequestBody UserEntity user) {
         try {
@@ -25,5 +26,16 @@ public class UserController {
         	e.printStackTrace();
         	return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+    
+    // login
+    @PostMapping("/login")
+    public ResponseEntity<String> signIn(@RequestBody UserEntity user){
+    	try {
+    		userService.getUser(user);
+    		return ResponseEntity.ok("login success");
+    	}catch(Exception e) {
+    		return ResponseEntity.badRequest().body(e.getMessage());
+    	}
     }
 }
