@@ -17,7 +17,12 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
-        security.authorizeHttpRequests(auth -> {
+        security
+        .csrf(csrf -> csrf.disable())
+        .cors();
+
+        security
+        .authorizeHttpRequests(auth -> {
             auth.requestMatchers("/user/**").authenticated()
                     .requestMatchers("/employee/**").hasAnyRole("EMPLOYEE", "MANAGER") // manager, admin만 허용
                     .requestMatchers("/Manager/**").hasRole("MANAGER") // admin만 허용
