@@ -32,7 +32,7 @@ export function SignUp() {
   }
 
   return (
-    <section className="flex flex-col items-center justify-center w-full h-full bg-gray-100">
+    <section className="flex flex-col items-center justify-center w-full h-screen bg-gray-100">
       <div className="mb-6 text-2xl font-semibold text-gray-900">회원가입</div>
       <div className="w-3/5 bg-white rounded-lg shadow h-3/5">
         <div className="flex flex-col items-center">

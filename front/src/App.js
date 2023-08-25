@@ -1,7 +1,5 @@
 import {Login} from './Page/LoginPage/Login'
-import {BrowserRouter, Routes} from 'react-router-dom'
-import { FileUpload } from './Component/FileUpload'
-import { SignUp } from './Page/LoginPage/SignUp'
+import {RouteMain} from './Page/Routes/RouteMain'
 
 function App() {
   // const data = [25, 45, 60, 30, 10]
@@ -9,10 +7,9 @@ function App() {
   // const backgroundColor = ['blue', 'steelblue', 'red', 'pink', 'black']
 
   return (
-    <div className="w-screen h-full">
-      {/* <SignUp/> */}
-      {/* <FileUpload/> */}
-      <Login />
+    <div className="w-full h-full">
+      {/* <Login /> */}
+      <RouteMain />
     </div>
   )
 }
