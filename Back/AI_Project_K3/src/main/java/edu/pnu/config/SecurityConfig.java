@@ -16,6 +16,7 @@ import edu.pnu.persistence.RecyclingRepository;
 @EnableWebSecurity
 public class SecurityConfig {
 
+<<<<<<< HEAD
 	@Autowired
 	private RecyclingRepository recyclingRepo;
 	
@@ -57,6 +58,25 @@ public class SecurityConfig {
     //                 .requestMatchers("/Manager/**").hasRole("MANAGER") // admin만 허용
     //                 .anyRequest().permitAll();
     //     });
+=======
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
+        security.csrf(csrf->csrf.disable());
+        security.cors();
+
+        security
+        .authorizeHttpRequests(auth -> {
+            auth.requestMatchers("/user/**").authenticated()
+                    .requestMatchers("/employee/**").hasAnyRole("EMPLOYEE", "MANAGER") // manager, admin만 허용
+                    .requestMatchers("/Manager/**").hasRole("MANAGER") // admin만 허용
+                    .anyRequest().permitAll();
+        });
+
+        security.formLogin(frmLogin->frmLogin.disable()); 
+		// Form을 이용한 로그인을 사용하지 않겠다는 설정 즉 .html파일을 작성하지 않아도 된다		
+
+        return security.build();
+>>>>>>> b9f9eee9a81cce4f053f65698aadfd5cb3ff4b09
 
     //     return security.build();
 
