@@ -17,9 +17,8 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity security) throws Exception {
-        security
-        .csrf(csrf -> csrf.disable())
-        .cors();
+        security.csrf(csrf->csrf.disable());
+        security.cors();
 
         security
         .authorizeHttpRequests(auth -> {
@@ -28,6 +27,9 @@ public class SecurityConfig {
                     .requestMatchers("/Manager/**").hasRole("MANAGER") // admin만 허용
                     .anyRequest().permitAll();
         });
+
+        security.formLogin(frmLogin->frmLogin.disable()); 
+		// Form을 이용한 로그인을 사용하지 않겠다는 설정 즉 .html파일을 작성하지 않아도 된다		
 
         return security.build();
 

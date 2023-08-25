@@ -1,6 +1,7 @@
 // 회원가입 페이지
 import {Input} from '../../Component'
-import {useRef, useState} from 'react'
+import {useState} from 'react'
+import axios from 'axios'
 
 export function SignUp() {
   const [data, setData] = useState({
@@ -23,7 +24,12 @@ export function SignUp() {
   }
 
   // 서버에 회원가입 요청
-  const SubmitBtnClicked = () => {}
+  const SubmitBtnClicked = () => {
+    axios
+      .post(`${process.env.REACT_APP_Server_URL}/register`, data)
+      .then(response => console.log(response.data))
+      .catch(error => error.message)
+  }
 
   return (
     <section className="flex flex-col items-center justify-center w-full h-full bg-gray-100">
@@ -62,7 +68,9 @@ export function SignUp() {
           <Input type="date" name="birth" placeholder="생일" className="m-4" onChange={event => DataOnChange(event)} />
         </div>
         <div className="flex justify-center w-full">
-          <button className="text-white btn btn-success">submit</button>
+          <button className="text-white btn btn-success" onClick={SubmitBtnClicked}>
+            submit
+          </button>
         </div>
       </div>
     </section>
