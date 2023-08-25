@@ -6,7 +6,7 @@ function App() {
   // const backgroundColor = ['blue', 'steelblue', 'red', 'pink', 'black']
 
   return (
-    <div className="w-screen h-full">
+    <div className="w-full h-screen">
       <RouteMain />
     </div>
   )
