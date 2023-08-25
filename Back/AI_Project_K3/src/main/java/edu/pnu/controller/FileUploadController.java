@@ -23,7 +23,7 @@ public class FileUploadController {
 	@Autowired
 	private CSVUploadService uploadCSVService;
 	
-	@CrossOrigin(origins = "http://localhost:3000")
+//	@CrossOrigin(origins = "http://localhost:3000")
 	@PostMapping("/file")
 	public String uploadCSVFile(@RequestParam("file") MultipartFile file) {
 		return uploadCSVService.uploadCSV(file);

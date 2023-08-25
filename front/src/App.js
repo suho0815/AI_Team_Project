@@ -1,6 +1,7 @@
 import {Login} from './Page/LoginPage/Login'
 import {BrowserRouter, Routes} from 'react-router-dom'
 import { FileUpload } from './Component/FileUpload'
+import { SignUp } from './Page/LoginPage/SignUp'
 
 function App() {
   // const data = [25, 45, 60, 30, 10]
@@ -9,8 +10,8 @@ function App() {
 
   return (
     <div className="w-screen h-full">
-
-      <FileUpload/>
+      <SignUp/>
+      {/* <FileUpload/> */}
       {/* <Login /> */}
     </div>
   )
