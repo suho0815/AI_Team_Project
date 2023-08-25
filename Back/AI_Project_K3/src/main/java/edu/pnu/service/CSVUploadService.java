@@ -36,22 +36,24 @@ public class CSVUploadService {
 				String ai_result = columns[2];
 				LocalDate date = LocalDate.parse(columns[3]);
 				String time = columns[4];
-				Integer ce = Integer.parseInt(columns[5]);
-				Integer rm = Integer.parseInt(columns[6]);
-				String reason = columns[7];
-				String img_url = columns[8];
+				Boolean state = Boolean.valueOf(columns[5]);
+				Integer ce = Integer.parseInt(columns[6]);
+				Integer rm = Integer.parseInt(columns[7]);
+				String reason = columns[8];
+//				String img_url = columns[9];
 				
 				Recycling recycle = new Recycling();
 				
 				recycle.setDetect_log_id(detect_log_id);
 				recycle.setDevice_id(device_id);
-				recycle.setAi_result(ai_result);
+				recycle.setAi_result(columns[2].isEmpty() ? null : ai_result);
 				recycle.setDate(date);
 				recycle.setTime(time);
-				recycle.setCe(ce);
-				recycle.setRm(rm);
-				recycle.setReason(reason);
-				recycle.setImg_url(img_url);
+				recycle.setState(state);
+				recycle.setCe(columns[6].isEmpty() ? null : ce);
+				recycle.setRm(columns[7].isEmpty() ? null : rm);
+				recycle.setReason(columns[8].isEmpty() ? null : reason);
+//				recycle.setImg_url(columns[9].isEmpty() ? null : img_url);
 				
 				dataList.add(recycle);
 			}
