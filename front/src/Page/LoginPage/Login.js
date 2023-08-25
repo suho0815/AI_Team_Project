@@ -1,12 +1,22 @@
 import {useState, useRef} from 'react'
+import {LoginInput} from '../../Component'
 import axios from 'axios'
 
 export const Login = () => {
-  const user_Id = useRef()
-  const password = useRef()
+  const user_Id = useRef(null)
+  const password = useRef(null)
 
   // 로그인 버튼 클릭 시
-  const SignInBtnClicked = () => {}
+  const SignInBtnClicked = () => {
+    axios
+      .get(`${process.env.REACT_APP_Server_URL}/login`, {
+        user_Id: user_Id.current?.value,
+        password: password.current?.value
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => error.message)
+  }
 
   return (
     <section className="bg-gray-100 dark:bg-gray-900">
@@ -17,34 +27,8 @@ export const Login = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign in to your account
             </h1>
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Your email
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                ref={user_Id}
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="name@company.com"
-                required=""
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                ref={password}
-                placeholder="••••••••"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required=""
-              />
-            </div>
+            <LoginInput label="Your ID" type="text" ref={user_Id} placeholder="Your ID" />
+            <LoginInput label="Password" type="password" ref={password} placeholder="password" />
             <div className="flex items-center justify-between">
               <div className="flex items-start">
                 <div className="flex items-center h-5">
