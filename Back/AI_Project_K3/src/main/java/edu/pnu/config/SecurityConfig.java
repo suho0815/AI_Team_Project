@@ -34,7 +34,8 @@ public class SecurityConfig {
 			.requestMatchers("/member/**").authenticated()
             .requestMatchers("/manager/**").hasAnyRole("MANAGER", "ADMIN")
             .requestMatchers("/admin/**").hasRole("ADMIN")
-            .requestMatchers("/file", "/readAllRecycle").permitAll()
+            // 권한 설정 추가 기억이겅 !!   
+            .requestMatchers("/file", "/readAllRecycle", "/signup", "/login").permitAll()
             .anyRequest().authenticated();
 		});
 		
