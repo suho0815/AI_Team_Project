@@ -1,2 +1,4 @@
 // 메인 페이지
-export function MainPage() {}
+export default function MainPage() {
+  return <div></div>
+}

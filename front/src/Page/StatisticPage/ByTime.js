@@ -1,5 +1,5 @@
 // 시간별 통계
-import {LineChart, Div} from '../../Component'
+import {Div, LineChart} from '../../Component'
 
 export function ByTime(data, label) {
   return (

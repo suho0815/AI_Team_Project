@@ -1,5 +1,5 @@
 // 종류별 통계
-import {BarChart, Div} from '../../Component'
+import {Div, BarChart} from '../../Component'
 
 export function ByType(data, label) {
   return (

@@ -1,6 +1,6 @@
 // 전체 정보 페이지
 import {Div} from '../../Component'
-import {ResultBox, SelectBox} from './ResultBox'
+import {ResultBox} from './ResultBox'
 
 export default function ResultPage() {
   // 스크롤
@@ -11,7 +11,6 @@ export default function ResultPage() {
   return (
     <Div>
       <ResultBox />
-      <SelectBox />
     </Div>
   )
 }
