@@ -26,7 +26,7 @@ export function SignUp() {
   // 서버에 회원가입 요청
   const SubmitBtnClicked = () => {
     axios
-      .post(`${process.env.REACT_APP_Server_URL}/register`, data)
+      .post('http://localhost:8080/signup', data)
       .then(response => console.log(response.data))
       .catch(error => error.message)
   }

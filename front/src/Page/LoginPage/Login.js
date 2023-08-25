@@ -3,20 +3,22 @@ import {LoginInput} from '../../Component'
 import axios from 'axios'
 
 export const Login = () => {
-  const user_Id = useRef(null)
-  const password = useRef(null)
+  const [user_Id, setUser_Id] = useState('');
+  const [pw, setPw] = useState('');
 
   // 로그인 버튼 클릭 시
   const SignInBtnClicked = () => {
     axios
-      .get(`${process.env.REACT_APP_Server_URL}/login`, {
-        user_Id: user_Id.current?.value,
-        password: password.current?.value
+      .post("http://localhost:8080/login", {
+        user_id: user_Id,
+        user_pw: pw
       })
       .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => error.message)
+      .then(data => console.log('data',data))
+      .catch(error => error.message);
   }
+console.log('id', user_Id);
+console.log('pw', pw);
 
   return (
     <section className="bg-gray-100 dark:bg-gray-900">
@@ -27,8 +29,8 @@ export const Login = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign in to your account
             </h1>
-            <LoginInput label="Your ID" type="text" ref={user_Id} placeholder="Your ID" />
-            <LoginInput label="Password" type="password" ref={password} placeholder="password" />
+            <LoginInput label="Your ID" type="text" placeholder="Your ID" value={user_Id} onChange={(e)=> setUser_Id(e.target.value)}/>
+            <LoginInput label="Password" type="password" placeholder="password" value={pw} onChange={(e)=> setPw(e.target.value)}/>
             <div className="flex items-center justify-between">
               <div className="flex items-start">
                 <div className="flex items-center h-5">
@@ -52,7 +54,7 @@ export const Login = () => {
             </div>
             <button
               type="submit"
-              className="w-full text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+              className="w-full text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" onClick={SignInBtnClicked}>
               Sign in
             </button>
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
