@@ -9,6 +9,6 @@ import edu.pnu.domain.UserEntity;
 public interface UserRepository extends JpaRepository<UserEntity, Integer>{
 	
 	// query method
-	Optional<UserEntity> findByUserId(String id);
+	Optional<UserEntity> findByUsername(String user);
 
 }

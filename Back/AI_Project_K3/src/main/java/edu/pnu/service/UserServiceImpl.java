@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserEntity getUser(UserEntity user) {
 		// find user	
-		Optional<UserEntity> findUser = userRepo.findByUserId(user.getUserId());
+		Optional<UserEntity> findUser = userRepo.findByUsername(user.getUsername());
 		// user가 DB에 있으면 정보 가져옴
 		if(findUser.isPresent())
 			return findUser.get();
@@ -33,9 +33,9 @@ public class UserServiceImpl implements UserService {
 	// sign up
 	@Override
 	public void createUser(UserEntity user) {
-		user.setUserId(user.getUserId());
+		user.setUsername(user.getUsername());
 		// 패스워드 암호화
-		user.setUser_pw(passwordEncoder.encode(user.getUser_pw()));
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		user.setUser_pw_chk(passwordEncoder.encode(user.getUser_pw_chk()));
 		user.setName(user.getName());
 		user.setEmail(user.getEmail());
