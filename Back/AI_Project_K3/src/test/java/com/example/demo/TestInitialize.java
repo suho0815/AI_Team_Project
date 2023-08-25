@@ -32,10 +32,16 @@ public class TestInitialize {
 		return null;
 	}
 	
-	@Test
+//	@Test
 	public String uploadRecord() {
 		String str = "3635,1,\"{\"\"can\"\": 1, \"\"paper\"\": 1, \"\"vinyl\"\": 1}\",2023-08-17,12:22:54,f,,,가";
 		System.out.println(str);
 		return null;
+	}
+	
+	@Test
+	public String test() {
+		System.out.println("hihi");
+		return "hihi";
 	}
 }

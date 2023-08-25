@@ -13,16 +13,16 @@ export const FileUpload = () => {
     const formData = new FormData()
     formData.append('file', file)
 
-    // try {
-    //   const response = await axios.post('/upload', formData, {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //   });
-    //   console.log(response.data); // Upload 결과 확인
-    // } catch (error) {
-    //   console.error('Upload error:', error);
-    // }
+    try {
+     let url = 'http://localhost:8080/file'
+
+      // fetch data
+      await axios.post(url,formData)
+            .then((resp)=> console.log('upload success',resp.data));
+      // console.log(response.data); // Upload 결과 확인
+    } catch (error) {
+      console.error('Upload error:', error);
+    }
   }
 
   const handleFileChange = () => {
