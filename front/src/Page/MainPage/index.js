@@ -61,7 +61,7 @@ export default function MainPage() {
         <Section2 />
         <Section3 />
       </div>
-      <div className="fixed bottom-0 left-4">
+      <div className="fixed flex flex-col bottom-1/2 left-4">
         <button className="mr-4" onClick={() => scrollToSection(1)}>
           Section 1
         </button>
