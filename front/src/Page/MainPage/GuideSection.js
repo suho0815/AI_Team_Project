@@ -1,3 +1,3 @@
-export function Section3() {
+export function GuideSection({currentSection}) {
   return <section className="w-full h-screen"></section>
 }
